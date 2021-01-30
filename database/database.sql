@@ -18,10 +18,10 @@ CREATE TABLE "genres" (
 -- JUNCTION TABLE
 -- Movies can have multiple genres and each genre can be applied to multiple movies
 -- This is many-to-many!
-CREATE TABLE "movies_genres" (
-  "id" SERIAL PRIMARY KEY,
-  "movie_id" INT REFERENCES "movies" NOT NULL,
-  "genre_id" INT REFERENCES "genres" NOT NULL
+CREATE TABLE "movies_genres"(
+"id" SERIAL PRIMARY KEY,
+"movie_id" INT REFERENCES "movies" NOT NULL,
+"genre_id" INT REFERENCES "genres" NOT NULL
 );
 
 --------[ DATA! ]---------
@@ -79,3 +79,6 @@ VALUES
 (12,8), (12,9),           -- Social Net
 (13,4), (13,10), (13,6),  -- Titanic
 (14,3), (14,2), (14,4);   -- Toy Story
+
+--// Add query to get all genres
+SELECT * FROM "genres" ORDER BY "NAME" ASC;
