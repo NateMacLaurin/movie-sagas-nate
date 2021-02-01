@@ -3,7 +3,10 @@
 
 -- 1. Select all movies with the 'Adventure' genre? Use the id.
 
-INSERT your SQL here :)
+SELECT * FROM "movies"
+JOIN "movies_genres" ON "movies_genres".movie_id = "movies".id
+JOIN "genres" ON "genres".id = "movies_genres".genre_id
+WHERE "genres".name = 'Adventure';
 
 -- 2. Get the count of movies that have each genre.  
 --  Make sure you get back all the genres!
@@ -21,10 +24,12 @@ Example Result:
 | Disaster      | 0             |
 ---------------------------------
 
-
+SELECT "genres".name, COUNT("genres".id) AS "movie_count" FROM "movies"
+JOIN "movies_genres" ON "movies_genres".movie_id = "movies".id
+JOIN "genres" ON "genres".id = "movies_genres".genre_id
+GROUP BY "genres".name;
 
 -- 3. Add the genre "Superhero" to "Star Wars".
-
 
 
 -- 4. Remove the "Comedy" genre from "Titanic"
