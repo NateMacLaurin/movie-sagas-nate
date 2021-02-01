@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './MovieList.css'
+import './MovieList.css';
+import '../../bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 
 function MovieList() {
@@ -23,17 +24,16 @@ function MovieList() {
         history.push('/details');
     }
 
-    const toAddMovie = () => {
+    /*const toAddMovie = () => {
         //debug console log
         console.log('Add Movie Clicked!');
         //redirect user to the AddMovieForm component page
         history.push('/add');
-    }
+    }*/
 
     return (
         <main>
-            <h1>MovieList</h1>
-            <button onClick={toAddMovie}>Add Movie</button>
+            {/*<button onClick={toAddMovie}>Add Movie</button>*/}
             <section className="movies">
                 {movies.map(movie => {
                     return (
@@ -41,7 +41,7 @@ function MovieList() {
                             <Card.Img variant="top" src={movie.poster} />
                             <Card.Body>
                                 <Card.Title>{movie.title}</Card.Title>
-                                <Button variant="primary" onClick={() => {showDetails(movie.id)}}>Details</Button>
+                                <Button variant="info" onClick={() => {showDetails(movie.id)}}>Details</Button>
                             </Card.Body>
                         </Card>
                     );

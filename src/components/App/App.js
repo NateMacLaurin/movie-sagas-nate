@@ -4,13 +4,19 @@ import MovieList from '../MovieList/MovieList'
 import MovieDetails from '../MovieDetails/MovieDetails';
 import AddMovieForm from '../AddMovieForm/AddMovieForm';
 import { useDispatch } from 'react-redux';
+import { Nav, Navbar } from 'react-bootstrap';
 
 function App() {
   const dispatch = useDispatch();
   
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
+      <Navbar bg="dark" variant="dark">
+      <Navbar.Brand>Nate's Movie Sagas</Navbar.Brand>
+      <Nav.Link href="#/">Home</Nav.Link>
+      <Nav.Link href="#/add">Add Movie</Nav.Link>
+      <Navbar.Toggle />
+      </Navbar>
       {/* Main List Page*/}
       <Router>        
         <Route path="/" exact>

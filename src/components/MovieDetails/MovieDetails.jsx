@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Card, Button, ListGroup } from 'react-bootstrap';
+import '../../bootstrap.min.css';
 
 function MovieDetails(){
     //redux hooks
@@ -22,7 +23,7 @@ function MovieDetails(){
             <Card.Title>{movieDetails[0]?.title}</Card.Title>
             <Card.Text>
                 {movieDetails[0]?.description}
-                <ListGroup variant="flush">
+                <ListGroup variant="info">
                         {movieDetails?.map(
                                 movieDetail => {
                                     return(
