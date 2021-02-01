@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function AddMovieForm(){
-
+    //"title", "poster", "description","genre_id"
     //local state variables
     const [movieTitle, setMovieTitle] = useState('');
     const [moviePoster, setmoviePoster] = useState('');
@@ -21,12 +21,13 @@ function AddMovieForm(){
 
     //submit data to the database
     const handleSubmit = () => {
+        console.log(`Add movie clicked! Title: ${movieTitle} Poster: ${moviePoster} Description: ${movieDescription} Genre: ${movieGenre}`);
         //dispatch the form data to redux-saga POST request
         dispatch({type: 'POST_MOVIE', payload: {
             title: movieTitle,
             poster: moviePoster,
             description: movieDescription,
-            genre: movieGenre
+            genre_id: movieGenre
         }});
         //return us to the movie list
         history.push('/');
@@ -63,10 +64,10 @@ function AddMovieForm(){
             onChange={(event) => setMovieGenre(event.target.value)}
             >
             {genres.map((genre) => (
-              <option key={genre.id}>{genre.name}</option>
+              <option key={genre.id} value={genre.id}>{genre.name}</option>
             ))}
             </select>
-            <button type="submit" onClick={handleSubmit}>Add Movie</button>
+            <button onClick={handleSubmit}>Add Movie</button>
             <button onClick={handleCancel}>Cancel</button>
         </>
     )

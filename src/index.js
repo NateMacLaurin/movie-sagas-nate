@@ -54,9 +54,15 @@ function* fetchDetails(action) {
     }
 }
 
+//saga to send data from AddMovieForm component to database POST request
 function* postNewMovie(action) {
     try {
-
+        //debug log
+        console.log(`In postNewMovie: ${action.payload}`);
+        //send new movie to the server
+        yield axios.post(`/api/movie/`, action.payload);
+        //now GET all movies after POST completes to populate the movies reducer with new data
+        yield put({type: 'FETCH_MOVIES'});
     } catch(err) {
         console.log(`ERROR in postNewMovie: ${err}`);
     }
