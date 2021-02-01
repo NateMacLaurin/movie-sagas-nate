@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function AddMovieForm(){
 
@@ -9,6 +9,10 @@ function AddMovieForm(){
     const [moviePoster, setmoviePoster] = useState('');
     const [movieDescription, setMovieDescription] = useState('');
     const [movieGenre, setMovieGenre] = useState('');
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRES' });
+      }, []);
 
     //redux hooks
     const history = useHistory();
@@ -58,8 +62,8 @@ function AddMovieForm(){
             name="Genre"
             onChange={(event) => setMovieGenre(event.target.value)}
             >
-            {genres.map((category) => (
-              <option value={category.id}>{category.name}</option>
+            {genres.map((genre) => (
+              <option key={genre.id}>{genre.name}</option>
             ))}
             </select>
             <button type="submit" onClick={handleSubmit}>Add Movie</button>

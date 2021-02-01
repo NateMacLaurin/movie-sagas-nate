@@ -30,11 +30,16 @@ JOIN "genres" ON "genres".id = "movies_genres".genre_id
 GROUP BY "genres".name;
 
 -- 3. Add the genre "Superhero" to "Star Wars".
-
+SELECT * FROM "movies"
+JOIN "movies_genres" ON "movies_genres".movie_id = "movies".id
+JOIN "genres" ON "genres".id = "movies_genres".genre_id
+WHERE "genres".name = 'Superhero';
 
 -- 4. Remove the "Comedy" genre from "Titanic"
-
-
+  SELECT "movies".title, "movies".poster, "movies".description, "genres".name AS "genre_name" FROM "movies"
+  JOIN "movies_genres" ON "movies_genres".movie_id = "movies".id
+  JOIN "genres" ON "genres".id = "movies_genres".genre_id
+  WHERE "movies".id = 1;
 
 -- Stretch
 
