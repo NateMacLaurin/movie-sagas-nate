@@ -9,18 +9,30 @@ function MovieList() {
     const movies = useSelector(store => store.movies);
     const history = useHistory();
 
+    //on load fetch the movie list via redux-saga
+
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
     const showDetails = (id) => {
+        //dispatch the movie ID to redux-saga for database query
         dispatch({type: 'FETCH_DETAILS', payload: id});
+        //redirect user to MovieDetails component page
         history.push('/details');
+    }
+
+    const toAddMovie = () => {
+        //debug console log
+        console.log('Add Movie Clicked!');
+        //redirect user to the AddMovieForm component page
+        history.push('/add');
     }
 
     return (
         <main>
             <h1>MovieList</h1>
+            <button onClick={toAddMovie}>Add Movie</button>
             <section className="movies">
                 {movies.map(movie => {
                     return (
