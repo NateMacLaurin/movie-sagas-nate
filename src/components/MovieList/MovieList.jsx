@@ -41,8 +41,6 @@ function MovieList() {
                             <Card.Img variant="top" src={movie.poster} />
                             <Card.Body>
                                 <Card.Title>{movie.title}</Card.Title>
-                                <Card.Text>
-                                </Card.Text>
                                 <Button variant="primary" onClick={() => {showDetails(movie.id)}}>Details</Button>
                             </Card.Body>
                         </Card>

@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Card, Button, ListGroup } from 'react-bootstrap';
 
 function MovieDetails(){
     //redux hooks
@@ -14,15 +15,27 @@ function MovieDetails(){
     }
 
     return(
-        <div className="detailView">
-            <h3>{movieDetails[0]?.title}</h3>
-            <img src={movieDetails[0]?.poster} alt={movieDetails[0]?.title} />
-            <p>{movieDetails[0]?.description}</p>
-            <ul>
-                {movieDetails?.map(movieDetail => {return(<li key={movieDetail.genre_name}>{movieDetail.genre_name}</li>);})}
-            </ul>
-            <button onClick={returnToList}>Return to Movie List</button>
-        </div>
+
+        <Card key={movieDetails[0]?.title} style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={movieDetails[0]?.poster} />
+            <Card.Body>
+            <Card.Title>{movieDetails[0]?.title}</Card.Title>
+            <Card.Text>
+                {movieDetails[0]?.description}
+                <ListGroup variant="flush">
+                        {movieDetails?.map(
+                                movieDetail => {
+                                    return(
+                                        <ListGroup.Item key={movieDetail.genre_name}>{movieDetail.genre_name}</ListGroup.Item>
+                                    );
+                                }
+                            )
+                        }
+                </ListGroup>
+            </Card.Text>
+            <Button variant="primary" onClick={returnToList}>Return to Movie List</Button>
+            </Card.Body>
+        </Card>
     )
 }
 
