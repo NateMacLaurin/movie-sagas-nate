@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import '../../bootstrap.min.css';
 
 function AddMovieForm(){
     //"title", "poster", "description","genre_id"
@@ -40,36 +41,43 @@ function AddMovieForm(){
     }
 
     return(
-        <>
-            <input type="text" 
-                onChange={(event) => setMovieTitle(event.target.value)} 
-                placeholder="Enter Movie Title" 
-                value={movieTitle}
-            />
-            <br />
-            <input type="url" 
-                onChange={(event) => setmoviePoster(event.target.value)} 
-                placeholder="Enter Movie Poster Image URL" 
-                value={moviePoster}
-            />
-            <br />
-            <input type="textarea" 
-                onChange={(event) => setMovieDescription(event.target.value)}
-                placeholder="Enter Movie Description"
-                value ={movieDescription}
-            />
-            <br />
-            <select
-            name="Genre"
-            onChange={(event) => setMovieGenre(event.target.value)}
-            >
-            {genres.map((genre) => (
-              <option key={genre.id} value={genre.id}>{genre.name}</option>
-            ))}
-            </select>
-            <button onClick={handleSubmit}>Add Movie</button>
-            <button onClick={handleCancel}>Cancel</button>
-        </>
+        <div className="container">
+                <h2>Add A Movie</h2>
+                <label htmlFor="titleInput">Title:</label>
+                <input className="titleInput" 
+                    type="text" 
+                    onChange={(event) => setMovieTitle(event.target.value)} 
+                    placeholder="Enter Movie Title" 
+                    value={movieTitle}
+                />
+                <br />
+                <label htmlFor="posterInput">Image URL:</label>
+                <input className="posterInput" 
+                    type="url" 
+                    onChange={(event) => setmoviePoster(event.target.value)} 
+                    placeholder="Enter Poster Image URL" 
+                    value={moviePoster}
+                />
+                <br />
+                <label htmlFor="descriptionInput">Description:</label>
+                <textarea className="descriptionInput" 
+                    rows="3"
+                    onChange={(event) => setMovieDescription(event.target.value)}
+                    placeholder="Enter Movie Description"
+                    value ={movieDescription}
+                />
+                <br />
+                <select
+                name="Genre"
+                onChange={(event) => setMovieGenre(event.target.value)}
+                >
+                {genres.map((genre) => (
+                <option key={genre.id} value={genre.id}>{genre.name}</option>
+                ))}
+                </select>
+                <button onClick={handleSubmit}>Add Movie</button>
+                <button onClick={handleCancel}>Cancel</button>
+        </div>
     )
 }
 

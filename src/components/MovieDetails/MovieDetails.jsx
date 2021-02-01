@@ -22,7 +22,6 @@ function MovieDetails(){
             <Card.Body>
             <Card.Title>{movieDetails[0]?.title}</Card.Title>
             <Card.Text>
-                {movieDetails[0]?.description}
                 <ListGroup variant="info">
                         {movieDetails?.map(
                                 movieDetail => {
@@ -33,6 +32,7 @@ function MovieDetails(){
                             )
                         }
                 </ListGroup>
+                {movieDetails[0]?.description}
             </Card.Text>
             <Button variant="primary" onClick={returnToList}>Return to Movie List</Button>
             </Card.Body>
