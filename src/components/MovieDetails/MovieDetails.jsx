@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function MovieDetails(){
-
+    //redux hooks
     const history = useHistory();
     const movieDetails = useSelector(store => store.movieDetail);
     //debug to show what we get back from our reducer after saga has run

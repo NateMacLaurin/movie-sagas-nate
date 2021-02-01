@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom';
 import './MovieList.css'
 
 function MovieList() {
-
+    
+    //redux hooks
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
     const history = useHistory();
 
     //on load fetch the movie list via redux-saga
-
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
