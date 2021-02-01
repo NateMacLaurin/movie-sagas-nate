@@ -17,7 +17,7 @@ function MovieDetails(){
 
     return(
 
-        <Card key={movieDetails[0]?.title} style={{ width: '18rem' }}>
+        <Card key={movieDetails[0]?.title} style={{ width: '20rem' }}>
             <Card.Img variant="top" src={movieDetails[0]?.poster} />
             <Card.Body>
             <Card.Title>{movieDetails[0]?.title}</Card.Title>

@@ -37,7 +37,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <Card key={movie.id} style={{ width: '18rem' }}>
+                        <Card key={movie.id} style={{ width: '14rem' }}>
                             <Card.Img variant="top" src={movie.poster} />
                             <Card.Body>
                                 <Card.Title>{movie.title}</Card.Title>

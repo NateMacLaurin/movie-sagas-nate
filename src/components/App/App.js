@@ -11,7 +11,7 @@ function App() {
   
   return (
     <div className="App">
-      <Navbar bg="dark" variant="dark">
+      <Navbar sticky="top" bg="dark" variant="dark">
       <Navbar.Brand>Nate's Movie Sagas</Navbar.Brand>
       <Nav.Link href="#/">Home</Nav.Link>
       <Nav.Link href="#/add">Add Movie</Nav.Link>
