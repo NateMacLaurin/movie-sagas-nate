@@ -1,6 +1,4 @@
-# Project Name
-
-Nate's Movie Sagas App
+# Nate's Movie Sagas
 
 ## Description
 
@@ -10,3 +8,15 @@ This full-stack application uses JavaScript React, Redux, and Redux-Sagas to han
 
 The application uses two main databases with a many<->many relationship, and a junction table.
 This application features redux sagas to unify all client HTTP requests through axios in one location at index.js.
+
+## Installation/Setup
+
+Create a `pizza_parlor` database in PostgreSQL. Import `database.sql` in PostgreSQL to create and fill tables with starter data.
+
+```
+npm install
+npm run server
+```
+```
+npm run client
+```
